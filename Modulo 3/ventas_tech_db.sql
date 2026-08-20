@@ -108,7 +108,11 @@ INSERT INTO productos (id_producto, nombre_producto, id_categoria, precio, stock
 
 -- ventas — 10 registros
 INSERT INTO ventas (id_venta, id_cliente, id_producto, cantidad, precio_unitario, fecha_venta) VALUES (1,  1, 1, 2, 1200.00, '2024-03-05');
-INSERT INTO ventas (id_venta, id_cliente, id_producto, cantidad, precio_unitario, fecha_venta) VALUES (2,  2, 5, 1,   28.00, '2024-03-06');
+-- en el enunciado esta venta aparecia con precio_unitario 28.00, pero ese es el precio del
+-- Mouse (producto 2), no del SSD Externo 1TB (producto 5) que es lo que realmente se vendio.
+-- se decidio usar el precio real del producto (130.00) porque sino después, al sumar ingresos
+-- por venta, el total no iba a cerrar con el resto de la tabla.
+INSERT INTO ventas (id_venta, id_cliente, id_producto, cantidad, precio_unitario, fecha_venta) VALUES (2,  2, 5, 1,  130.00, '2024-03-06');
 INSERT INTO ventas (id_venta, id_cliente, id_producto, cantidad, precio_unitario, fecha_venta) VALUES (3,  3, 3, 1,  450.00, '2024-03-07');
 INSERT INTO ventas (id_venta, id_cliente, id_producto, cantidad, precio_unitario, fecha_venta) VALUES (4,  1, 4, 2,  120.00, '2024-03-08');
 INSERT INTO ventas (id_venta, id_cliente, id_producto, cantidad, precio_unitario, fecha_venta) VALUES (5,  4, 5, 3,  130.00, '2024-03-10');
